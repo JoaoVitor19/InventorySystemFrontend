@@ -15,6 +15,15 @@ export class AuthService {
 
   constructor(public http: HttpClient) { }
 
+  // isLoggedIn(): boolean {
+  //   let token = JSON.parse(localStorage.getItem("token") ?? "");
+  //   if (token && new Date(token.expiryDate) > new Date()) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
   getAuthToken(): string {
     return this.token || "";
   }

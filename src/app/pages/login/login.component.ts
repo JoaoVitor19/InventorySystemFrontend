@@ -54,6 +54,12 @@ export class LoginComponent implements OnInit {
   login() {
     let form = this.form.getRawValue();
     this.authService.login(form.email, form.password);
-    this.snackBar.open("Seja bem vindo", "Fechar", { duration: 750 });
+  }
+
+  newAcessSolicitation() {
+    this.snackBar.open(
+      `
+     Ainda não implementamos a criação de novos usuários
+    `, "Fechar", { duration: 2000 });
   }
 }

@@ -32,14 +32,10 @@
                     <mat-error>Você precisa digitar a sua senha</mat-error>
                     }
 
-                    @if(showPassword){
-                    <mat-icon (click)="setPasswordVisilibity()" matSuffix>visibility_off</mat-icon>
-                    }
-                    @else {
-                    <mat-icon (click)="setPasswordVisilibity()" matSuffix>visibility</mat-icon>
-                    }
+                    <mat-icon (click)="setPasswordVisilibity()" matSuffix>{{showPassword ? "visibility_off" : "visibility"}}</mat-icon>
 
                 </mat-form-field>
+
 
                 <button mat-stroked-button class="p-4 w-50 mt-3" type="button" [disabled]="form.invalid"
                     (click)="login()">Entre <mat-icon matSuffix>login</mat-icon></button>
@@ -53,14 +49,14 @@
         </div>
 
         <div class="w-100 d-flex justify-content-center mt-3">
-            <button mat-flat-button color="primary" class="p-4 w-50">Solicite uma conta conosco!</button>
+            <button mat-flat-button color="primary" class="p-4 w-50" (click)="newAcessSolicitation()">Solicite um novo acesso conosco!</button>
         </div>
 
 
         <div style="position: absolute; bottom: 15px;">
-            <a style="margin-right: 20px; cursor: pointer;"><img src="assets/svgs/instagram.svg" width="45"
+            <a href="https://www.instagram.com/rcaipirao" target="_blank" style="margin-right: 20px; cursor: pointer;"><img src="assets/svgs/instagram.svg" width="45"
                     height="45"></a>
-            <a style="cursor: pointer;"><img src="assets/svgs/whatsapp.svg" width="45" height="45"></a>
+            <a href="https://api.whatsapp.com/send?phone=5569993803677" target="_blank" style="cursor: pointer;"><img src="assets/svgs/whatsapp.svg" width="45" height="45"></a>
         </div>
 
     </div>
@@ -69,34 +65,3 @@
         <!-- <div class="background-img-dynamic"></div> -->
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="p-5 m-5 d-flex justify-content-center align-items-center">
-    <form>
-        <img src="assets/logo-caipirao.png" alt="Restaurant Logo" class="logo-min">
-        <div>
-            <h3>Seja bem vindo ao Restaurante Caipirão</h3>
-            <div>
-                <label for="emailId"></label>
-                <input type="text" id="emailId" placeholder="Digite seu email">
-            </div>
-            <div>
-                <label for="passwordId"></label>
-                <input type="text" id="passwordId" placeholder="Digite sua senha">
-            </div>
-        </div>
-    </form>
-</div> -->
