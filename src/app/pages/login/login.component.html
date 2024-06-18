@@ -1,1 +1,102 @@
-<p>login works!</p>
+<div class="row">
+    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center page-divider">
+        <div class="d-flex flex-column align-items-center">
+            <img [src]="pathLogoLogin" alt="Restaurante Logo" class="logo-mid">
+            <span class="mb-4" style="font-size: 25px;">Entre em sua conta</span>
+        </div>
+
+        <div>
+            <form [formGroup]="form" (submit)="$event.preventDefault()" class="text-center">
+                <mat-form-field [floatLabel]="'always'" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Digite aqui o seu email">
+
+                    @if (form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')) {
+                    <mat-error>Digite um email válido!</mat-error>
+                    }
+                    @if (form.hasError('required')) {
+                    <mat-error>Você precisa digitar o seu email</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field [floatLabel]="'always'" class="w-100">
+                    <mat-label>Senha</mat-label>
+                    <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password"
+                        placeholder="Digite sua senha">
+
+                    @if (form.get('password')?.hasError('minlength') &&
+                    !form.get('password')?.hasError('required')) {
+                    <mat-error>Digite uma senha com no minimo 6 caracteres</mat-error>
+                    }
+                    @if (form.get('password')?.hasError('required')) {
+                    <mat-error>Você precisa digitar a sua senha</mat-error>
+                    }
+
+                    @if(showPassword){
+                    <mat-icon (click)="setPasswordVisilibity()" matSuffix>visibility_off</mat-icon>
+                    }
+                    @else {
+                    <mat-icon (click)="setPasswordVisilibity()" matSuffix>visibility</mat-icon>
+                    }
+
+                </mat-form-field>
+
+                <button mat-stroked-button class="p-4 w-50 mt-3" type="button" [disabled]="form.invalid"
+                    (click)="login()">Entre <mat-icon matSuffix>login</mat-icon></button>
+            </form>
+        </div>
+
+        <div class="d-flex w-100 gap-3 align-items-center mt-5 mb-5">
+            <mat-divider class="w-100"></mat-divider>
+            <span style="font-family: Roboto; color: rgb(170,170,170);">OU</span>
+            <mat-divider class="w-100"></mat-divider>
+        </div>
+
+        <div class="w-100 d-flex justify-content-center mt-3">
+            <button mat-flat-button color="primary" class="p-4 w-50">Solicite uma conta conosco!</button>
+        </div>
+
+
+        <div style="position: absolute; bottom: 15px;">
+            <a style="margin-right: 20px; cursor: pointer;"><img src="assets/svgs/instagram.svg" width="45"
+                    height="45"></a>
+            <a style="cursor: pointer;"><img src="assets/svgs/whatsapp.svg" width="45" height="45"></a>
+        </div>
+
+    </div>
+    <div class="col-md-8 p-2">
+        <img [src]="pathImageLogin" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- <div class="background-img-dynamic"></div> -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="p-5 m-5 d-flex justify-content-center align-items-center">
+    <form>
+        <img src="assets/logo-caipirao.png" alt="Restaurant Logo" class="logo-min">
+        <div>
+            <h3>Seja bem vindo ao Restaurante Caipirão</h3>
+            <div>
+                <label for="emailId"></label>
+                <input type="text" id="emailId" placeholder="Digite seu email">
+            </div>
+            <div>
+                <label for="passwordId"></label>
+                <input type="text" id="passwordId" placeholder="Digite sua senha">
+            </div>
+        </div>
+    </form>
+</div> -->
