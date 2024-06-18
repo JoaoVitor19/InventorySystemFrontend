@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,35 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   user = null;
+  token = null;
+  expiryDate: Date | null = null;
+
+  apiUrl = "https://localhost:44366";
 
   constructor(public http: HttpClient) { }
 
-  private login() {
-
+  getAuthToken(): string {
+    return this.token || "";
   }
 
-  private logout() {
+  public login(email: string, password: string) {
+    this.http.post(`${this.apiUrl}/login`, { email: email, password: password }).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.user = data.user;
+        this.token = data.token.accessToken;
+        this.expiryDate = new Date(data.token.expiryDate);
+      },
+      error: (error: any) => {
+        this.user = null;
+        this.token = null;
+        this.expiryDate = null;
+        console.log(error);
+      }
+    });
+  }
+
+  public logout() {
     this.user = null;
   }
 }
