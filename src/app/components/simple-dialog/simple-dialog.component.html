@@ -1,0 +1,13 @@
+<div class="p-3 text-center">
+  @if(data.title){
+    <h2 mat-dialog-title>{{data.title}}</h2>
+}
+
+<mat-dialog-content>
+    <span>{{data.text}}</span>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-center">
+  <button mat-button color="primary" cdkFocusInitial (click)="close()">Fechar</button>
+</mat-dialog-actions>
+</div>

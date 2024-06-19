@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   Validators,
   ReactiveFormsModule,
@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -33,6 +34,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private authService: AuthService) { }
+
+  readonly dialog = inject(MatDialog);
 
   form: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
