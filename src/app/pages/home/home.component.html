@@ -1,0 +1,27 @@
+
+<div style="position: absolute; top: 15px; right: 15px; width: 100px;;">
+    <div class="d-flex justify-content-around">
+        <mat-icon (click)="darkMode = !darkMode">{{darkMode ? "dark_mode_outlined" : "light_mode"}}</mat-icon>
+        <mat-icon>settings</mat-icon>
+    </div>
+</div>
+
+<div class="d-flex flex-column align-items-center justify-content-around h-100 pb-5 pt-3">
+    <div class="d-flex flex-column align-items-center">
+        <img [src]="pathLogoLogin" alt="Restaurante Logo" class="logo-mid">
+    </div>
+    
+    <div class="d-flex flex-column gap-2">
+        <button mat-raised-button color="primary">VENDER <mat-icon >shopping_cart</mat-icon></button>
+        <button mat-raised-button color="primary">ULTIMAS VENDAS <mat-icon>storefront</mat-icon></button>
+        <button mat-raised-button color="primary">RELATÓRIOS <mat-icon>bar_chart</mat-icon></button>
+    </div>
+
+    <h2>Gestão de Estoque</h2>
+    <button mat-stroked-button color="primary">Novo Produto <mat-icon>add</mat-icon></button>
+    <button mat-stroked-button color="primary">Lista de Produtos <mat-icon>fact_check</mat-icon></button>
+
+    <h2>Gestão de Pessoas</h2>
+    <button mat-stroked-button color="primary">Adicionar Funcionário <mat-icon>person_add</mat-icon></button>
+    <button mat-stroked-button color="primary">Lista de Funcionários <mat-icon>group</mat-icon></button>
+</div>

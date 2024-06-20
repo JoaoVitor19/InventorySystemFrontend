@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { SimpleDialogModal } from '../components/simple-dialog/simple-dialog.component';
+import { SimpleDialogModal } from '../components/dialogs/simple-dialog/simple-dialog.component';
 import { DialogType } from '../enums/dialogType.enum';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class DialogService {
         break;
       }
       case DialogType.CONFIRMATION: {
-        // Implementação futura para diálogos de confirmação
+        
         break;
       }
       default: {

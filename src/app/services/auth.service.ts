@@ -17,14 +17,30 @@ export class AuthService {
 
   constructor(public http: HttpClient, private dialogService: DialogService, private router: Router) { }
 
-  // isLoggedIn(): boolean {
-  //   let token = JSON.parse(localStorage.getItem("token") ?? "");
-  //   if (token && new Date(token.expiryDate) > new Date()) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  isLoggedIn(): boolean {
+
+    if (this.token == null) {
+      let tokenStorage = localStorage.getItem("token");
+      let expiryDateStorage = localStorage.getItem("expiryDate");
+      if (tokenStorage && expiryDateStorage) {
+        let token = tokenStorage;
+        let expiryDate = JSON.parse(expiryDateStorage);
+
+        this.token = token;
+        this.expiryDate = new Date(expiryDate);
+        
+      } else {
+        return false;
+      }
+    }
+
+    if (this.token && this.expiryDate && this.expiryDate > new Date()) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
 
   getAuthToken(): string | null {
     if (this.token == null) {
@@ -33,7 +49,7 @@ export class AuthService {
       this.expiryDate = expiryDateStorage != null ? new Date(expiryDateStorage) : null;
     }
 
-    if (this.expiryDate != null && this.expiryDate < new Date()) {
+    if (this.token && this.expiryDate != null && this.expiryDate < new Date()) {
       return null;
     } else {
       return this.token;
