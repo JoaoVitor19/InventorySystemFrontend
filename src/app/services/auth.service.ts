@@ -83,6 +83,11 @@ export class AuthService {
   }
 
   public logout() {
+    localStorage.clear();
     this.user = null;
+    this.token = null;
+    this.expiryDate = null;
+
+    this.router.navigate(['/login']);
   }
 }

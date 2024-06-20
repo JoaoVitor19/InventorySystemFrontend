@@ -5,3 +5,7 @@ button[mat-raised-button]{
 button[mat-stroked-button]{
     min-width: 300px;
 }
+
+button[mat-flat-button]{
+    border: 1px solid rgb(197, 197, 197);
+}
