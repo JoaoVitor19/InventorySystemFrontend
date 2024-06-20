@@ -1,1 +1,15 @@
-<p>image-input works!</p>
+<mat-card>
+    <mat-card-title class="text-center">Foto do Produto</mat-card-title>
+    <mat-divider class="w-100"></mat-divider>
+    <mat-card-content class="d-flex justify-content-center">
+        <img [src]="imageUrl" style="width: auto; height: 200px; object-fit: cover;">
+    </mat-card-content>
+    <mat-divider class="w-100"></mat-divider>
+    <mat-card-actions class="gap-2 d-flex flex-column">
+        <button mat-stroked-button color="primary" class="w-100" (click)="addImage(true)"><mat-icon>photo_camera</mat-icon>Tirar Foto</button>
+        <div class="w-100">
+            <button mat-stroked-button color="primary" class="w-50" (click)="addImage(false)"><mat-icon>photo_library</mat-icon>Galeria</button>
+            <button mat-stroked-button color="warn" class="w-50" (click)="removeImage()"><mat-icon>delete</mat-icon>Remover Foto</button>
+        </div>
+    </mat-card-actions>
+</mat-card>

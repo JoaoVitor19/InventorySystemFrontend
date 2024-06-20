@@ -1,0 +1,48 @@
+<div class="w-100 h-100 d-flex flex-column align-items-center" [formGroup]="form">
+    <div class="w-100 p-3">
+        <button mat-stroked-button color="primary" routerLink="/home">Voltar<mat-icon>arrow_back</mat-icon></button>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <image-input [imageUrl]="null" (onAddImage)="addImage($event)"
+                (onRemoveImage)="removeImage()"></image-input>
+        </div>
+
+        <mat-form-field class="col-12 mt-3" [floatLabel]="'always'">
+            <mat-label>Nome do Produto</mat-label>
+            <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mt-2" [floatLabel]="'always'">
+            <mat-label>Descrição</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="col-6 mt-2" floatLabel="always">
+            <mat-label>Valor Pago <span style="color: red;">(opcional)</span></mat-label>
+            <input matInput type="text" formControlName="initialPrice" mask="separator.2" decimalMarker=","
+                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false"/>
+            <span matTextPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <mat-form-field class="col-6 mt-2" floatLabel="always">
+            <mat-label>Valor da Venda</mat-label>
+            <input matInput type="text" formControlName="finalPrice" mask="separator.2" decimalMarker=","
+                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false"/>
+            <span matTextPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <!-- <mat-label>Categorias do Produto</mat-label>
+        <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+
+            @for (category of categorys; track category) {
+            <mat-chip-option selected>{{category}}</mat-chip-option>
+            }
+        </mat-chip-listbox> -->
+        <div class="col-12 text-center mt-4">
+            <button mat-raised-button color="primary" class="w-75" [disabled]="form.invalid" (click)="createProduct()">Criar Produto</button>
+        </div>
+    </div>
+</div>

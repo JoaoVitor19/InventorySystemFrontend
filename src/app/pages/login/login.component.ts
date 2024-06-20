@@ -22,9 +22,9 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatDividerModule
