@@ -21,28 +21,22 @@
         </mat-form-field>
 
         <mat-form-field class="col-6 mt-2" floatLabel="always">
-            <mat-label>Valor Pago <span style="color: red;">(opcional)</span></mat-label>
+            <mat-label>Valor no Fornecedor</mat-label>
             <input matInput type="text" formControlName="initialPrice" mask="separator.2" decimalMarker=","
-                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false"/>
-            <span matTextPrefix>$&nbsp;</span>
+                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false" />
+            <span matTextSuffix>R$</span>
         </mat-form-field>
 
         <mat-form-field class="col-6 mt-2" floatLabel="always">
-            <mat-label>Valor da Venda</mat-label>
+            <mat-label>Valor do Produto</mat-label>
             <input matInput type="text" formControlName="finalPrice" mask="separator.2" decimalMarker=","
-                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false"/>
-            <span matTextPrefix>$&nbsp;</span>
+                thousandSeparator="." [leadZero]="true" [dropSpecialCharacters]="false" />
+            <span matTextSuffix>R$</span>
         </mat-form-field>
 
-        <!-- <mat-label>Categorias do Produto</mat-label>
-        <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-
-            @for (category of categorys; track category) {
-            <mat-chip-option selected>{{category}}</mat-chip-option>
-            }
-        </mat-chip-listbox> -->
         <div class="col-12 text-center mt-4">
-            <button mat-raised-button color="primary" class="w-75" [disabled]="form.invalid" (click)="createProduct()">Criar Produto</button>
+            <button mat-raised-button color="primary" class="w-75" [disabled]="form.invalid"
+                (click)="createProduct()">Criar Produto</button>
         </div>
     </div>
 </div>

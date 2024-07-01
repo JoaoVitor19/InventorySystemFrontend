@@ -2,32 +2,46 @@
 
 </div> -->
 
-<div class="d-flex flex-column align-items-center justify-content-between h-100 pb-5 pt-3">
-    <div class="d-flex justify-content-around gap-2">
-        <button mat-flat-button (click)="logout()">Sair <mat-icon>logout</mat-icon></button>
-        <button mat-flat-button (click)="setDarkMode()">
-            {{ darkMode ? "Dark Mode" : "Light Mode" }}
-            <mat-icon>{{ darkMode ? "dark_mode_outlined" : "light_mode" }}</mat-icon>
-          </button>
-        <button mat-flat-button>Configurações <mat-icon>settings</mat-icon></button>
-    </div>
+<main class="d-flex flex-column align-items-center justify-content-between gap-2 mt-2">
+    <main class="row m-0 p-0">
+        <div class="col-6 mb-2 col-md-4">
+            <button style="width: 100%" mat-flat-button (click)="logout()">Sair <mat-icon>logout</mat-icon></button>
+        </div>
+        <div class="col-6 mb-2 col-md-4 text-center">
+            <button style="width: 100%" mat-flat-button (click)="setDarkMode()">
+                {{ darkMode ? "Dark Mode" : "Light Mode" }}
+                <mat-icon>{{ darkMode ? "dark_mode_outlined" : "light_mode" }}</mat-icon>
+            </button>
+        </div>
+        <div class="col-12 col-md-4">
+            <button style="width: 100%" mat-flat-button>Configurações <mat-icon>settings</mat-icon></button>
+        </div>
+    </main>
 
     <div class="d-flex flex-column align-items-center">
         <img [src]="pathLogoLogin" alt="Restaurante Logo" class="logo-mid">
     </div>
 
-    <div class="d-flex flex-column gap-2">
+    <section>
         <button mat-raised-button color="primary">VENDER <mat-icon>shopping_cart</mat-icon></button>
         <button mat-raised-button color="primary">ULTIMAS VENDAS <mat-icon>storefront</mat-icon></button>
         <button mat-raised-button color="primary">RELATÓRIOS <mat-icon>bar_chart</mat-icon></button>
-    </div>
+    </section>
 
-    <h2>Gestão de Estoque</h2>
-    <button mat-stroked-button color="primary" routerLink="/product/new">Novo Produto <mat-icon>add</mat-icon></button>
-    <button mat-stroked-button color="primary" routerLink="/products">Lista de Produtos
-        <mat-icon>fact_check</mat-icon></button>
 
-    <h2>Gestão de Pessoas</h2>
-    <button mat-stroked-button color="primary">Adicionar Funcionário <mat-icon>person_add</mat-icon></button>
-    <button mat-stroked-button color="primary">Lista de Funcionários <mat-icon>group</mat-icon></button>
-</div>
+    <section>
+        <h2>Gestão de Estoque</h2>
+        <button mat-stroked-button color="primary" routerLink="/product/new">Novo Produto
+            <mat-icon>add</mat-icon></button>
+        <button mat-stroked-button color="primary" routerLink="/products">Lista de Produtos
+            <mat-icon>fact_check</mat-icon></button>
+    </section>
+
+
+    <section>
+        <h2>Gestão de Pessoas</h2>
+        <button mat-stroked-button color="primary">Adicionar Funcionário <mat-icon>person_add</mat-icon></button>
+        <button mat-stroked-button color="primary">Lista de Funcionários <mat-icon>group</mat-icon></button>
+    </section>
+
+</main>
